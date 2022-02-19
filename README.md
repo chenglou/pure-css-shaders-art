@@ -6,9 +6,9 @@ Shaders art made with pure CSS, with an editable code area also made in CSS, for
 
 The `span`s are arranged into a 2d grid and colored using shader-style coding methods (short, concise code shared across all `span`s, with different CSS variable inputs). This ensures that the CSS art is easy to understand, maintain and modify.
 
-The demos are responsive & editable even on mobile. Check this repo's `index_heart.html` and `index_ring.html`. Online version:
-- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/index_heart.html)
-- [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/index_ring.html)
+The demos are responsive & editable even on mobile. Check out this repo's various `html` sources.
+- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.html)
+- [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/ring.html)
 - [Real Squircle and drop shadow](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://www.figma.com/blog/desperately-seeking-squircles/) since CSS can't do squircles
 
 ## FAQ
