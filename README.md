@@ -9,6 +9,7 @@ The `span`s are arranged into a 2d grid and colored using shader-style coding me
 The demos are responsive & editable even on mobile. Check this repo's `index_heart.html` and `index_ring.html`. Online version:
 - [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/index_heart.html)
 - [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/index_ring.html)
+- [Real Squircle and drop shadow](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://www.figma.com/blog/desperately-seeking-squircles/) since CSS can't do squircles
 
 ## FAQ
 
