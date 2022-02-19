@@ -43,6 +43,34 @@
   div > span:nth-child(20) {--x: 0.95;}
   div > span:nth-child(21) {--x: 1.0;}
 
+  /* we can't have an infinitely increasing variable in CSS, so we settle for a precomputed sine wave for time */
+  @keyframes timer {
+    0% {--sinTime: 0.0000;}
+    5% {--sinTime: 0.2948;}
+    10% {--sinTime: 0.5633;}
+    15% {--sinTime: 0.7818;}
+    20% {--sinTime: 0.9309;}
+    25% {--sinTime: 0.9972;}
+    30% {--sinTime: 0.9749;}
+    35% {--sinTime: 0.8660;}
+    40% {--sinTime: 0.6802;}
+    45% {--sinTime: 0.4339;}
+    50% {--sinTime: 0.1490;}
+    55% {--sinTime: -0.1490;}
+    60% {--sinTime: -0.4339;}
+    65% {--sinTime: -0.6802;}
+    70% {--sinTime: -0.8660;}
+    75% {--sinTime: -0.9749;}
+    80% {--sinTime: -0.9972;}
+    85% {--sinTime: -0.9309;}
+    90% {--sinTime: -0.7818;}
+    95% {--sinTime: -0.5633;}
+    100% {--sinTime: -0.2948;}
+  }
+  :root {
+    --sinTime: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
+    animation: timer 1s infinite;
+  }
   body {
     display: flex;
     flex-direction: column;
@@ -83,7 +111,7 @@
   contenteditable="true"
 >
   /* Editable style!
-    Provided globals: --x, --y, normalized from 0 to 1 */
+    Provided globals: --x, --y, normalized from 0 to 1, and --sinTime, from roughly -1 to 1 over 1 second */
   span {
     --PI: 3.14159;
     /* create new UV from -1 to 1 */
@@ -92,7 +120,7 @@
 
     --absU: max(var(--u), -1*var(--u)); /* abs() polyfill */
     --v2: calc(var(--v) * 1.2 - var(--absU) * (1.0 - var(--absU)));
-    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - 0.01);
+    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - (var(--sinTime) - 0.9) / 2.0);
 
     background-color: rgb(
       calc(var(--dist) * 255),
