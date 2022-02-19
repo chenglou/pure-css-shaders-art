@@ -2,14 +2,14 @@
 
 Shaders art made with pure CSS, with an editable code area also made in CSS, for better eh, developer experience.
 
-<img width="396" alt="Screen Shot 2022-02-19 at 03 21 35" src="https://user-images.githubusercontent.com/1909539/154793047-43b1b80b-a787-46f4-bbc6-064403ce38cd.png">
+<img width="396" alt="Heart" src="https://user-images.githubusercontent.com/1909539/154793047-43b1b80b-a787-46f4-bbc6-064403ce38cd.png">
 
 The `span`s are arranged into a 2d grid and colored using shader-style coding methods (short, concise code shared across all `span`s, with different CSS variable inputs). This ensures that the CSS art is easy to understand, maintain and modify.
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` sources.
 - [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.html)
 - [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/ring.html)
-- [Real Squircle and drop shadow](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://www.figma.com/blog/desperately-seeking-squircles/) since CSS can't do squircles
+- [Real Squircle + Drop Shadow](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles
 
 ## FAQ
 
