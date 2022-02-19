@@ -136,12 +136,12 @@
     --bg-z: max(calc(var(--dist) - var(--sin-z)), calc(var(--sin-w) - var(--dist)));
     --bg-w: max(calc(var(--dist) - var(--sin-w)), calc(var(--sin-x) - var(--dist)));
 
-    --clamped-bg-x: max(0.0, min(1.0, calc(var(--bg-x) * 10.0)));
-    --clamped-bg-y: max(0.0, min(1.0, calc(var(--bg-y) * 10.0)));
-    --clamped-bg-z: max(0.0, min(1.0, calc(var(--bg-z) * 10.0)));
-    --clamped-bg-w: max(0.0, min(1.0, calc(var(--bg-w) * 10.0)));
-
-    --dot: calc(var(--clamped-bg-x)*72.0*var(--sin-x) + var(--clamped-bg-y)*72.0*var(--sin-y) + var(--clamped-bg-z)*72.0*var(--sin-z) + var(--clamped-bg-w)*72.0*var(--sin-w));
+    --dot: calc(
+      clamp(0, var(--bg-x) * 10.0, 1) * 72.0 * var(--sin-x) +
+      clamp(0, var(--bg-y) * 10.0, 1) * 72.0 * var(--sin-y) +
+      clamp(0, var(--bg-z) * 10.0, 1) * 72.0 * var(--sin-z) +
+      clamp(0, var(--bg-w) * 10.0, 1) * 72.0 * var(--sin-w)
+    );
 
     --r: calc(var(--dot) * (var(--sin-x) - 0.1));
     --g: calc(var(--dot) * (var(--sin-y) - 0.1));
