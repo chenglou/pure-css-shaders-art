@@ -5,8 +5,8 @@ Shaders art made with pure CSS, with an editable code area also made in CSS, for
 The `span`s are arranged into a 2d grid and colored using shader-style coding methods (short, concise code shared across all `span`s, with different CSS variable inputs). This ensures that the CSS art is easy to understand, maintain and modify.
 
 The demos are responsive & editable on mobile.
-- [Happy Valentines]()
-- [Lord of Rings]()
+- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/index_heart.html)
+- [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/index_ring.html)
 
 ## FAQ
 
