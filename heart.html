@@ -43,32 +43,15 @@
   div > span:nth-child(20) {--x: 0.95;}
   div > span:nth-child(21) {--x: 1.0;}
 
-  /* we can't have an infinitely increasing variable in CSS, so we settle for a precomputed sine wave for time */
   @keyframes timer {
-    0% {--sinTime: 0.0000;}
-    5% {--sinTime: 0.2948;}
-    10% {--sinTime: 0.5633;}
-    15% {--sinTime: 0.7818;}
-    20% {--sinTime: 0.9309;}
-    25% {--sinTime: 0.9972;}
-    30% {--sinTime: 0.9749;}
-    35% {--sinTime: 0.8660;}
-    40% {--sinTime: 0.6802;}
-    45% {--sinTime: 0.4339;}
-    50% {--sinTime: 0.1490;}
-    55% {--sinTime: -0.1490;}
-    60% {--sinTime: -0.4339;}
-    65% {--sinTime: -0.6802;}
-    70% {--sinTime: -0.8660;}
-    75% {--sinTime: -0.9749;}
-    80% {--sinTime: -0.9972;}
-    85% {--sinTime: -0.9309;}
-    90% {--sinTime: -0.7818;}
-    95% {--sinTime: -0.5633;}
-    100% {--sinTime: -0.2948;}
+    0% {--time: 0.00;} 5% {--time: 0.05;} 10% {--time: 0.10;} 15% {--time: 0.15;} 20% {--time: 0.20;}
+    25% {--time: 0.25;} 30% {--time: 0.30;} 35% {--time: 0.35;} 40% {--time: 0.40;} 45% {--time: 0.45;}
+    50% {--time: 0.50;} 55% {--time: 0.55;} 60% {--time: 0.60;} 65% {--time: 0.65;} 70% {--time: 0.70;}
+    75% {--time: 0.75;} 80% {--time: 0.80;} 85% {--time: 0.85;} 90% {--time: 0.90;} 95% {--time: 0.95;}
+    100% {--time: 1.00;}
   }
   :root {
-    --sinTime: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
+    --time: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
     animation: timer 1s infinite;
   }
   body {
@@ -111,7 +94,8 @@
   contenteditable="true"
 >
   /* Editable style!
-    Provided globals: --x, --y, normalized from 0 to 1, and --sinTime, from roughly -1 to 1 over 1 second */
+    Provided globals: --x, --y, normalized from 0 to 1
+    and --time from 0 to 1 over 1 second then loops (since CSS can't increase a counter forever)  */
   span {
     --PI: 3.14159;
     /* create new UV from -1 to 1 */
@@ -120,7 +104,12 @@
 
     --absU: max(var(--u), -1*var(--u)); /* abs() polyfill */
     --v2: calc(var(--v) * 1.2 - var(--absU) * (1.0 - var(--absU)));
-    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - (var(--sinTime) - 0.9) / 2.0);
+    --t2: calc(3.14 * var(--time)); /* range:  [0, PI] */
+    /* sin approximation: https://datagenetics.com/blog/july12019/index.html */
+    /* The sine approximation only works for [0, PI]. Good enough for us as it looks like a pulse! */
+    /* https://www.desmos.com/calculator/to02njtw9e  */
+    --sin-t2: calc(16 * var(--t2) * (3.14 - var(--t2)) / (5 * 3.14 * 3.14 - 4 * var(--t2) * (3.14 - var(--t2))));
+    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - var(--sin-t2) * 0.3);
 
     background-color: rgb(
       calc(var(--dist) * 255),
