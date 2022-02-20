@@ -45,30 +45,30 @@
 
   /* we can't have an infinitely increasing variable in CSS, so we settle for a precomputed sine wave for time */
   @keyframes timer {
-    0% {--sinTime: 0.0000;}
-    5% {--sinTime: 0.2948;}
-    10% {--sinTime: 0.5633;}
-    15% {--sinTime: 0.7818;}
-    20% {--sinTime: 0.9309;}
-    25% {--sinTime: 0.9972;}
-    30% {--sinTime: 0.9749;}
-    35% {--sinTime: 0.8660;}
-    40% {--sinTime: 0.6802;}
-    45% {--sinTime: 0.4339;}
-    50% {--sinTime: 0.1490;}
-    55% {--sinTime: -0.1490;}
-    60% {--sinTime: -0.4339;}
-    65% {--sinTime: -0.6802;}
-    70% {--sinTime: -0.8660;}
-    75% {--sinTime: -0.9749;}
-    80% {--sinTime: -0.9972;}
-    85% {--sinTime: -0.9309;}
-    90% {--sinTime: -0.7818;}
-    95% {--sinTime: -0.5633;}
-    100% {--sinTime: -0.2948;}
+    0% {--sin-time: 0.0000;}
+    5% {--sin-time: 0.2948;}
+    10% {--sin-time: 0.5633;}
+    15% {--sin-time: 0.7818;}
+    20% {--sin-time: 0.9309;}
+    25% {--sin-time: 0.9972;}
+    30% {--sin-time: 0.9749;}
+    35% {--sin-time: 0.8660;}
+    40% {--sin-time: 0.6802;}
+    45% {--sin-time: 0.4339;}
+    50% {--sin-time: 0.1490;}
+    55% {--sin-time: -0.1490;}
+    60% {--sin-time: -0.4339;}
+    65% {--sin-time: -0.6802;}
+    70% {--sin-time: -0.8660;}
+    75% {--sin-time: -0.9749;}
+    80% {--sin-time: -0.9972;}
+    85% {--sin-time: -0.9309;}
+    90% {--sin-time: -0.7818;}
+    95% {--sin-time: -0.5633;}
+    100% {--sin-time: -0.2948;}
   }
   :root {
-    --sinTime: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
+    --sin-time: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
     animation: timer 6.28318s infinite; /* 2PI period */
   }
   body {
@@ -111,9 +111,8 @@
   contenteditable="true"
 >
   /* Editable style!
-    Provided globals: --x, --y, normalized from 0 to 1, and --sinTime, from roughly -1 to 1 over 1 second */
+    Provided globals: --x, --y, normalized from 0 to 1, and --sin-time, from roughly -1 to 1 over 2PI seconds */
   span {
-    --PI: 3.14159;
     /* create new UV from -1 to 1 */
     --u: calc(2.0 * var(--x) - 1.0);
     --v: calc(2.0 * var(--y) - 1.0);
@@ -121,15 +120,15 @@
     --dist: calc((var(--u) * var(--u) + var(--v) * var(--v))/2.0 - 0.25);
     /* approximation of atan(v, u) */
     --atan-div: calc(var(--v) / (var(--u) + 0.001));
-    --angle-x: calc(var(--atan-div) / (1.0 + 0.28125*var(--atan-div)*var(--atan-div)) * 1.3 + var(--sinTime)/2.0 - 0.25);
+    --angle-x: calc(var(--atan-div) / (1.0 + 0.28125*var(--atan-div)*var(--atan-div)) * 1.3 + var(--sin-time)/2.0 - 0.4);
     --angle-y: calc(var(--angle-x) + 1.5);
     --angle-z: calc(var(--angle-x) + 3.0);
     --angle-w: calc(var(--angle-x) + 4.5);
     /* approximation of 0.1*sin(angle + someConstant) */
-    --sin-x: calc(1.6 * var(--angle-x) * (var(--PI) - var(--angle-x)) / (5*var(--PI)*var(--PI) - 4*var(--angle-x)*(var(--PI) - var(--angle-x))));
-    --sin-y: calc(1.6 * var(--angle-y) * (var(--PI) - var(--angle-y)) / (5*var(--PI)*var(--PI) - 4*var(--angle-y)*(var(--PI) - var(--angle-y))));
-    --sin-z: calc(1.6 * var(--angle-z) * (var(--PI) - var(--angle-z)) / (5*var(--PI)*var(--PI) - 4*var(--angle-z)*(var(--PI) - var(--angle-z))));
-    --sin-w: calc(1.6 * var(--angle-w) * (var(--PI) - var(--angle-w)) / (5*var(--PI)*var(--PI) - 4*var(--angle-w)*(var(--PI) - var(--angle-w))));
+    --sin-x: calc(1.6 * var(--angle-x) * (3.14 - var(--angle-x)) / (49.35 - 4*var(--angle-x)*(3.14 - var(--angle-x))));
+    --sin-y: calc(1.6 * var(--angle-y) * (3.14 - var(--angle-y)) / (49.35 - 4*var(--angle-y)*(3.14 - var(--angle-y))));
+    --sin-z: calc(1.6 * var(--angle-z) * (3.14 - var(--angle-z)) / (49.35 - 4*var(--angle-z)*(3.14 - var(--angle-z))));
+    --sin-w: calc(1.6 * var(--angle-w) * (3.14 - var(--angle-w)) / (49.35 - 4*var(--angle-w)*(3.14 - var(--angle-w))));
 
     --bg-x: max(calc(var(--dist) - var(--sin-x)), calc(var(--sin-y) - var(--dist)));
     --bg-y: max(calc(var(--dist) - var(--sin-y)), calc(var(--sin-z) - var(--dist)));
@@ -137,20 +136,16 @@
     --bg-w: max(calc(var(--dist) - var(--sin-w)), calc(var(--sin-x) - var(--dist)));
 
     --dot: calc(
-      clamp(0, var(--bg-x) * 10.0, 1) * 72.0 * var(--sin-x) +
-      clamp(0, var(--bg-y) * 10.0, 1) * 72.0 * var(--sin-y) +
-      clamp(0, var(--bg-z) * 10.0, 1) * 72.0 * var(--sin-z) +
-      clamp(0, var(--bg-w) * 10.0, 1) * 72.0 * var(--sin-w)
+      clamp(0, var(--bg-x) * 720, 72) * var(--sin-x) +
+      clamp(0, var(--bg-y) * 720, 72) * var(--sin-y) +
+      clamp(0, var(--bg-z) * 720, 72) * var(--sin-z) +
+      clamp(0, var(--bg-w) * 720, 72) * var(--sin-w)
     );
 
-    --r: calc(var(--dot) * (var(--sin-x) - 0.1));
-    --g: calc(var(--dot) * (var(--sin-y) - 0.1));
-    --b: calc(var(--dot) * (var(--sin-z) - 0.1));
+    --r: calc(var(--dot) * (var(--sin-x) - 0.1) * 255);
+    --g: calc(var(--dot) * (var(--sin-y) - 0.1) * 255);
+    --b: calc(var(--dot) * (var(--sin-z) - 0.1) * 255);
 
-    background-color: rgb(
-      calc(var(--r) * 255),
-      calc(var(--g) * 255),
-      calc(var(--b) * 255)
-    );
+    background-color: rgb(var(--r), var(--g), var(--b));
   }
 </style>
