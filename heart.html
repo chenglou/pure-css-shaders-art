@@ -51,7 +51,6 @@
     100% {--time: 1.00;}
   }
   :root {
-    --time: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
     animation: timer 1s infinite;
   }
   body {
@@ -105,11 +104,7 @@
     --absU: max(var(--u), -1*var(--u)); /* abs() polyfill */
     --v2: calc(var(--v) * 1.2 - var(--absU) * (1.0 - var(--absU)));
     --t2: calc(3.14 * var(--time)); /* range:  [0, PI] */
-    /* sin approximation: https://datagenetics.com/blog/july12019/index.html */
-    /* The sine approximation only works for [0, PI]. Good enough for us as it looks like a pulse! */
-    /* https://www.desmos.com/calculator/to02njtw9e  */
-    --sin-t2: calc(16 * var(--t2) * (3.14 - var(--t2)) / (5 * 3.14 * 3.14 - 4 * var(--t2) * (3.14 - var(--t2))));
-    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - var(--sin-t2) * 0.3);
+    --dist: calc(var(--u) * var(--u) + var(--v2) * var(--v2) - sin(var(--t2)) * 0.3);
 
     background-color: rgb(
       calc(var(--dist) * 255),

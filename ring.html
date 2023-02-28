@@ -43,32 +43,14 @@
   div > span:nth-child(20) {--x: 0.95;}
   div > span:nth-child(21) {--x: 1.0;}
 
-  /* we can't have an infinitely increasing variable in CSS, so we settle for a precomputed sine wave for time */
   @keyframes timer {
-    0% {--sin-time: 0.0000;}
-    5% {--sin-time: 0.2948;}
-    10% {--sin-time: 0.5633;}
-    15% {--sin-time: 0.7818;}
-    20% {--sin-time: 0.9309;}
-    25% {--sin-time: 0.9972;}
-    30% {--sin-time: 0.9749;}
-    35% {--sin-time: 0.8660;}
-    40% {--sin-time: 0.6802;}
-    45% {--sin-time: 0.4339;}
-    50% {--sin-time: 0.1490;}
-    55% {--sin-time: -0.1490;}
-    60% {--sin-time: -0.4339;}
-    65% {--sin-time: -0.6802;}
-    70% {--sin-time: -0.8660;}
-    75% {--sin-time: -0.9749;}
-    80% {--sin-time: -0.9972;}
-    85% {--sin-time: -0.9309;}
-    90% {--sin-time: -0.7818;}
-    95% {--sin-time: -0.5633;}
-    100% {--sin-time: -0.2948;}
+    0% {--time: 0.00;} 5% {--time: 0.05;} 10% {--time: 0.10;} 15% {--time: 0.15;} 20% {--time: 0.20;}
+    25% {--time: 0.25;} 30% {--time: 0.30;} 35% {--time: 0.35;} 40% {--time: 0.40;} 45% {--time: 0.45;}
+    50% {--time: 0.50;} 55% {--time: 0.55;} 60% {--time: 0.60;} 65% {--time: 0.65;} 70% {--time: 0.70;}
+    75% {--time: 0.75;} 80% {--time: 0.80;} 85% {--time: 0.85;} 90% {--time: 0.90;} 95% {--time: 0.95;}
+    100% {--time: 1.00;}
   }
   :root {
-    --sin-time: 1; /* fallback value of 1 for browsers like Safari that don't support css variable in @keyframes */
     animation: timer 6.28318s infinite; /* 2PI period */
   }
   body {
@@ -111,40 +93,43 @@
   contenteditable="true"
 >
   /* Editable style!
-    Provided globals: --x, --y, normalized from 0 to 1, and --sin-time, from roughly -1 to 1 over 2PI seconds */
+    Provided globals: --x, --y, normalized from 0 to 1, and --time, looping over 2PI seconds
+    Reference: https://www.shadertoy.com/view/msd3R2
+  */
   span {
     /* create new UV from -1 to 1 */
     --u: calc(2.0 * var(--x) - 1.0);
     --v: calc(2.0 * var(--y) - 1.0);
     /* no square root */
     --dist: calc((var(--u) * var(--u) + var(--v) * var(--v))/2.0 - 0.25);
-    /* approximation of atan(v, u) */
-    --atan-div: calc(var(--v) / (var(--u) + 0.001));
-    --angle-x: calc(var(--atan-div) / (1.0 + 0.28125*var(--atan-div)*var(--atan-div)) * 1.3 + var(--sin-time)/2.0 - 0.4);
-    --angle-y: calc(var(--angle-x) + 1.5);
-    --angle-z: calc(var(--angle-x) + 3.0);
-    --angle-w: calc(var(--angle-x) + 4.5);
-    /* approximation of 0.1*sin(angle + someConstant) */
-    --sin-x: calc(1.6 * var(--angle-x) * (3.14 - var(--angle-x)) / (49.35 - 4*var(--angle-x)*(3.14 - var(--angle-x))));
-    --sin-y: calc(1.6 * var(--angle-y) * (3.14 - var(--angle-y)) / (49.35 - 4*var(--angle-y)*(3.14 - var(--angle-y))));
-    --sin-z: calc(1.6 * var(--angle-z) * (3.14 - var(--angle-z)) / (49.35 - 4*var(--angle-z)*(3.14 - var(--angle-z))));
-    --sin-w: calc(1.6 * var(--angle-w) * (3.14 - var(--angle-w)) / (49.35 - 4*var(--angle-w)*(3.14 - var(--angle-w))));
+    /* divide into 4 quadrants, -1 to 1 */
+    --quadrant-div: calc(var(--v) / (var(--u) + 0.001));
 
-    --bg-x: max(calc(var(--dist) - var(--sin-x)), calc(var(--sin-y) - var(--dist)));
-    --bg-y: max(calc(var(--dist) - var(--sin-y)), calc(var(--sin-z) - var(--dist)));
-    --bg-z: max(calc(var(--dist) - var(--sin-z)), calc(var(--sin-w) - var(--dist)));
-    --bg-w: max(calc(var(--dist) - var(--sin-w)), calc(var(--sin-x) - var(--dist)));
+    --a-x: calc(var(--quadrant-div) / (0.77 + 0.21*var(--quadrant-div)*var(--quadrant-div)) + sin(var(--time))/2.0 - 0.5);
+    --a-y: calc(var(--a-x) + 1.5);
+    --a-z: calc(var(--a-x) + 3.0);
+    --a-w: calc(var(--a-x) + 4.5);
+
+    --b-x: calc(1.6 * var(--a-x) * (3.14 - var(--a-x)) / (50 - 4*var(--a-x)*(3.14 - var(--a-x))));
+    --b-y: calc(1.6 * var(--a-y) * (3.14 - var(--a-y)) / (50 - 4*var(--a-y)*(3.14 - var(--a-y))));
+    --b-z: calc(1.6 * var(--a-z) * (3.14 - var(--a-z)) / (50 - 4*var(--a-z)*(3.14 - var(--a-z))));
+    --b-w: calc(1.6 * var(--a-w) * (3.14 - var(--a-w)) / (50 - 4*var(--a-w)*(3.14 - var(--a-w))));
+
+    --bg-x: max(calc(var(--dist) - var(--b-x)), calc(var(--b-y) - var(--dist)));
+    --bg-y: max(calc(var(--dist) - var(--b-y)), calc(var(--b-z) - var(--dist)));
+    --bg-z: max(calc(var(--dist) - var(--b-z)), calc(var(--b-w) - var(--dist)));
+    --bg-w: max(calc(var(--dist) - var(--b-w)), calc(var(--b-x) - var(--dist)));
 
     --dot: calc(
-      clamp(0, var(--bg-x) * 720, 72) * var(--sin-x) +
-      clamp(0, var(--bg-y) * 720, 72) * var(--sin-y) +
-      clamp(0, var(--bg-z) * 720, 72) * var(--sin-z) +
-      clamp(0, var(--bg-w) * 720, 72) * var(--sin-w)
+      clamp(0, var(--bg-x) * 720, 72) * var(--b-x) +
+      clamp(0, var(--bg-y) * 720, 72) * var(--b-y) +
+      clamp(0, var(--bg-z) * 720, 72) * var(--b-z) +
+      clamp(0, var(--bg-w) * 720, 72) * var(--b-w)
     );
 
-    --r: calc(var(--dot) * (var(--sin-x) - 0.1) * 255);
-    --g: calc(var(--dot) * (var(--sin-y) - 0.1) * 255);
-    --b: calc(var(--dot) * (var(--sin-z) - 0.1) * 255);
+    --r: calc(var(--dot) * (var(--b-x) - 0.1) * 255);
+    --g: calc(var(--dot) * (var(--b-y) - 0.1) * 255);
+    --b: calc(var(--dot) * (var(--b-z) - 0.1) * 255);
 
     background-color: rgb(var(--r), var(--g), var(--b));
   }
