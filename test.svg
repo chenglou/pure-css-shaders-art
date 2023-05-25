@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="151" height="68">
+  <g id="Frame-0" fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="none" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal" visibility="hidden">
+    <g id="Drawing" stroke="#000000" stroke-width="5" stroke-linecap="round">
+      <path d="M13.5,10c0,14.2074 3,27.11534 3,41" id="Stroke-1297461289"/>
+      <path d="M13.5,8c7.15151,0 22.8204,-2.4612 19,9c-1.87162,5.61487 -7.24701,5.81175 -12,7c-0.19457,0.04864 -6.51389,1.48611 -5,3c4.493,4.493 35.47595,-4.47595 19,12c-2.26606,2.26606 -3.24406,8.08135 -6,9c-2.96874,0.98958 -7.76833,0 -11,0" id="Stroke-1297461291"/>
+      <path d="M55.5,31c22.71044,0 -6,32.50591 -6,14c0,-3.33333 0,-6.66667 0,-10c0,-2.27635 -0.10409,-3.89591 1,-5c7.91232,-7.91232 21.80777,14.80777 25,18" id="Stroke-1297461314"/>
+      <path d="M78.5,24c0,4 2,7 2,11c0,2 3,15 3,13c0,-2.9894 6.22662,-15.22662 8,-17c6.74221,-6.74221 15,9.66858 15,15" id="Stroke-1297461316"/>
+      <path d="M124.5,27c26.44671,0 7.65701,24.65701 -1,16c-9.36531,-9.36531 6.69458,-19.30542 14,-12c11.04427,11.04427 -16.9994,33.0006 -27,23" id="Stroke-1297461318"/>
+    </g>
+  </g>
+  <style type="text/css">
+    @keyframes flash { 0%   { visibility: visible; }
+                       33.333333333333336%  { visibility: hidden;  } }
+    #Frame-0 { animation: flash 0.30000000000000004s linear infinite 0s;    }
+    #Frame-1 { animation: flash 0.30000000000000004s linear infinite 0.1s;    }
+    #Frame-2 { animation: flash 0.30000000000000004s linear infinite 0.2s;    }
+  </style>
+</svg>
