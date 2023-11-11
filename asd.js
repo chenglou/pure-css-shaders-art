@@ -10,9 +10,9 @@ for (let i = 0; i < count; i++) {
   const pos = i / (count - 1)
 
   cssX += `p:nth-child(${i + 1}) {--x: ${pos};}\n`
-  cssMouseX += `body:has(p:nth-child(${i + 1}):hover) {--mouseX: ${pos};}\n`
+  cssMouseX += `body:has(p:nth-child(${i + 1}):hover, p:nth-child(${i + 1}):active) {--mouseX: ${pos};}\n`
   cssY += `div:nth-child(${count - i}) {--y: ${pos};}\n`
-  cssMouseY += `body:has(div:nth-child(${count - i}):hover) {--mouseY: ${pos};}\n`
+  cssMouseY += `body:has(div:nth-child(${count - i}):hover, p:nth-child(${i + 1}):active) {--mouseY: ${pos};}\n`
 }
 
 console.log(cssX)
