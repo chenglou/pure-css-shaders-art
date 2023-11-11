@@ -6,9 +6,6 @@ Shaders art made with pure CSS, with an editable code area also made in CSS.
 
 **Dear GitHub: please don't disable this! This is harmless**
 
-<img width="700" alt="Quick Look" src="https://user-images.githubusercontent.com/1909539/154792697-d8740074-ff14-49b4-b8f1-28096ce3e5ba.png">
-iOS & macOS previews disable JavaScript. Fortunately, this doesn't use JS
-
 The demos are responsive & editable even on mobile. Check out this repo's various `html` or `svg` sources.
 
 - [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.svg)
@@ -33,9 +30,15 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
 
   I bet they will! I bet you are =P
 
-- **Is this a joke**
+- **Is this a joke?**
 
   CSS or shaders?
+
+- **What else can you do with it?**
+
+  <img width="700" alt="Quick Look" src="https://user-images.githubusercontent.com/1909539/154792697-d8740074-ff14-49b4-b8f1-28096ce3e5ba.png">
+
+  iOS & macOS previews disable JavaScript for security reasons. Fortunately, this doesn't use JS, so you can sling around HTML shaders and they'll just drift off in a distributed fashion, forever.
 
 ## Contribute
 
