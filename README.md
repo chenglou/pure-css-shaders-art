@@ -4,8 +4,10 @@
 
 Shaders art made with pure CSS, with an editable code area also made in CSS.
 
+**Dear GitHub: please don't disable this! This is harmless**
+
 <img width="700" alt="Quick Look" src="https://user-images.githubusercontent.com/1909539/154792697-d8740074-ff14-49b4-b8f1-28096ce3e5ba.png">
-iOS & macOS previews disable JavaScript. Fortunately, we don't have JS 🙂
+iOS & macOS previews disable JavaScript. Fortunately, this doesn't use JS
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` or `svg` sources.
 
