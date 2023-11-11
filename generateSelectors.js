@@ -4,7 +4,7 @@ let cssY = ''
 let cssMouseX = ''
 let cssMouseY = ''
 
-const count = 26 // prefer odd number so that there's a center column. Ideally 1 / (count - 1) is also a well-rounded decimal number
+const count = 26 // ideally 1 / (count - 1) is also a well-rounded decimal number
 
 for (let i = 0; i < count; i++) {
   const pos = i / (count - 1)

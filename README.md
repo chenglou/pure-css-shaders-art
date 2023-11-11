@@ -1,13 +1,11 @@
 # Pure CSS Shaders Art
 
-<a><img src="test.svg" style="width: 100%; height: 80vh;"></a>
+<a href="https://chenglou.me/pure-css-shaders-art/heart.html"><img src="test.svg" style="width: 100%; height: 80vh;"></a>
 
-Shaders art made with pure CSS, with an editable code area also made in CSS, for better eh, developer experience.
+Shaders art made with pure CSS, with an editable code area also made in CSS.
 
 <img width="700" alt="Quick Look" src="https://user-images.githubusercontent.com/1909539/154792697-d8740074-ff14-49b4-b8f1-28096ce3e5ba.png">
 iOS & macOS previews disable JavaScript. Fortunately, we don't have JS 🙂
-
-The `p`s are arranged into a 2d grid and colored using shader-style coding methods (short, concise code shared across all `p`s, with different CSS variable inputs). This ensures that the CSS art is easy to understand, maintain and modify.
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` sources.
 

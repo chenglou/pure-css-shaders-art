@@ -110,71 +110,80 @@
   @property --time { inherits: true; initial-value: 0; syntax: "\003Cnumber\003E"; /* escaped angular brackets because embedding brackets in SVG causes parsing error */ }
   @keyframes timer { from {--time: 0;} to {--time: 1;} }
   :root {
-    animation: timer 1s infinite;
+    animation: timer 1s linear infinite;
     --mouseX: 0.5;
     --mouseY: 0.5;
+    --mouseClick: 0;
   }
+  body:active { --mouseClick: 1; }
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: hsl(0, 0%, 95%); /* soft white */
     margin: 0;
-    padding-top: 12px;
+    padding-top: 16px;
   }
+  div { line-height: 0; } /* needed for embedding in svg */
   p {
     display: inline-block;
     margin: 0;
-    width: calc(50vmin / 26);
-    height: calc(50vmin / 26);
+    width: calc(25vmin / 26);
+    height: calc(25vmin / 26);
     -webkit-user-select: none; /* (only) safari lets you select some p */
   }
 </style>
 
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
-<div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+<lol>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+</lol>
 
-<style style="display: inline-block; white-space: pre-wrap; font: 1rem monospace; padding: 16px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true">/* Editable style!
+<strong style="font-family: monospace; margin: 8px;">Click or hover over the picture!</strong>
+
+<style style="display: block; white-space: pre-wrap; font: 1rem monospace; padding: 16px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true">/* Editable style!
   Provided globals:
   --x, --y: from 0 to 1
   --mouseX, --mouseY: from 0 to 1, default to 0.5 when not hovering
-  --time: loops from 0 to 1 over 1s (CSS can't increase a counter forever) */
+  --mouseClick: 1 if clicking, 0 otherwise
+  --time: loops from 0 to 1 over 1s */
 p {
   /* create new UV from -1 to 1 */
   --u: (2.0 * var(--x) - 1.0);
   --v: (2.0 * var(--y) - 1.0);
 
   --u2: (var(--u) - var(--mouseX) + 0.5);
-  --absU2: max(var(--u2), -1 * var(--u2)); /* abs() polyfill */
-  --v2: (var(--v) * 1.2 - var(--absU2) * (1.0 - var(--absU2) + var(--mouseY) - 0.5));
-  --time2: 3.14 * var(--time); /* range:  [0, PI] */
+  --U2Abs: max(var(--u2), -1 * var(--u2)); /* abs() polyfill */
+  --v2: ((var(--v) + 0.1) * 1.2 - var(--U2Abs) * (1.0 - var(--U2Abs) + var(--mouseY) - 0.5));
   --dist: var(--u) * var(--u) + var(--v2) * var(--v2); /* sqrt() polyfill */
-  --color: clamp(0, 0.5 - (var(--dist) - sin(var(--time2)) * 0.3), 1);
+  --timeSin: sin(3.14 * var(--time) * (1 + var(--mouseClick) * 3));
+  --timeSinAbs: max(var(--timeSin), -1 * var(--timeSin)); /* abs() polyfill */
+  --color: clamp(0, 0.45 - (var(--dist) - var(--timeSinAbs) * 0.3), 1);
 
   /* cycle through color on the HSL disk */
-  background-color: hsl(calc(var(--color) * 360 - 180), 50%, 50%);
+  background-color: hsl(calc(var(--color) * 360 - 180 * (1 - var(--mouseClick))), 50%, 50%);
 }</style>
