@@ -11,22 +11,25 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
 
 - [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.html)
 - [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/ring.html)
-- [Real Squircle + Drop Shadow](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles
+- [Real Squircle, anti-aliased](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles
 
 ## FAQ
 
-- **But no one will read and modify this obviously nonsensical code**
-
-  I bet they will! I bet you are =P
-
 - **How does this work?**
 
+  It's a grid of `<p />` with a single p style for `background-color`, calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
+
+  The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝
+  
   GitHub Markdown disables JS, `<style />`, `<svg />` and anything interactive. So I put:
-  - CSS inside a self-editable, reactive `<style contenteditable="true" />`
-  - Inside an HTML page
+  - Style inside an HTML page
   - Inside a SVG `<foreignObject />`
-  - Inside an `img`
-  - Inside GitHub README markdown
+  - Inside an `img` link
+  - Inside GitHub README markdown which does support `img`
+
+- **Why bother keeping the code clean if no one will read or modify this nonsense?**
+
+  I bet they will! I bet you are =P
 
 - **Is this a joke**
 
