@@ -1,11 +1,21 @@
-let css = '';
+// generate css for the grid
+let cssX = ''
+let cssY = ''
+let cssMouseX = ''
+let cssMouseY = ''
 
-for (let i = 1; i <= 100; i++) {
-  css += `div:nth-child(${101 - i}) > span {--y: ${(i - 1) * 0.0101};}\n`;
+const count = 26 // prefer odd number so that there's a center column. Ideally 1 / (count - 1) is also a well-rounded decimal number
+
+for (let i = 0; i < count; i++) {
+  const pos = i / (count - 1)
+
+  cssX += `p:nth-child(${i + 1}) {--x: ${pos};}\n`
+  cssMouseX += `body:has(p:nth-child(${i + 1}):hover) {--mouseX: ${pos};}\n`
+  cssY += `div:nth-child(${count - i}) {--y: ${pos};}\n`
+  cssMouseY += `body:has(div:nth-child(${count - i}):hover) {--mouseY: ${pos};}\n`
 }
 
-for (let i = 1; i <= 100; i++) {
-  css += `div > span:nth-child(${i}) {--x: ${(i - 1) * 0.0101};}\n`;
-}
-
-console.log(css);
+console.log(cssX)
+console.log(cssY)
+console.log(cssMouseX)
+console.log(cssMouseY)
