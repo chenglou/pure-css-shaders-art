@@ -1,136 +1,135 @@
 <style>
-  div:nth-child(21) > span {--y: 0;}
-  div:nth-child(20) > span {--y: 0.05;}
-  div:nth-child(19) > span {--y: 0.1;}
-  div:nth-child(18) > span {--y: 0.15;}
-  div:nth-child(17) > span {--y: 0.2;}
-  div:nth-child(16) > span {--y: 0.25;}
-  div:nth-child(15) > span {--y: 0.3;}
-  div:nth-child(14) > span {--y: 0.35;}
-  div:nth-child(13) > span {--y: 0.4;}
-  div:nth-child(12) > span {--y: 0.45;}
-  div:nth-child(11) > span {--y: 0.5;}
-  div:nth-child(10) > span {--y: 0.55;}
-  div:nth-child(9) > span {--y: 0.6;}
-  div:nth-child(8) > span {--y: 0.65;}
-  div:nth-child(7) > span {--y: 0.7;}
-  div:nth-child(6) > span {--y: 0.75;}
-  div:nth-child(5) > span {--y: 0.8;}
-  div:nth-child(4) > span {--y: 0.85;}
-  div:nth-child(3) > span {--y: 0.9;}
-  div:nth-child(2) > span {--y: 0.95;}
-  div:nth-child(1) > span {--y: 1.0;}
+  div:nth-child(21) > p {--y: 0;}
+  div:nth-child(20) > p {--y: 0.05;}
+  div:nth-child(19) > p {--y: 0.1;}
+  div:nth-child(18) > p {--y: 0.15;}
+  div:nth-child(17) > p {--y: 0.2;}
+  div:nth-child(16) > p {--y: 0.25;}
+  div:nth-child(15) > p {--y: 0.3;}
+  div:nth-child(14) > p {--y: 0.35;}
+  div:nth-child(13) > p {--y: 0.4;}
+  div:nth-child(12) > p {--y: 0.45;}
+  div:nth-child(11) > p {--y: 0.5;}
+  div:nth-child(10) > p {--y: 0.55;}
+  div:nth-child(9) > p {--y: 0.6;}
+  div:nth-child(8) > p {--y: 0.65;}
+  div:nth-child(7) > p {--y: 0.7;}
+  div:nth-child(6) > p {--y: 0.75;}
+  div:nth-child(5) > p {--y: 0.8;}
+  div:nth-child(4) > p {--y: 0.85;}
+  div:nth-child(3) > p {--y: 0.9;}
+  div:nth-child(2) > p {--y: 0.95;}
+  div:nth-child(1) > p {--y: 1.0;}
 
-  div > span:nth-child(1) {--x: 0.0;}
-  div > span:nth-child(2) {--x: 0.05;}
-  div > span:nth-child(3) {--x: 0.1;}
-  div > span:nth-child(4) {--x: 0.15;}
-  div > span:nth-child(5) {--x: 0.2;}
-  div > span:nth-child(6) {--x: 0.25;}
-  div > span:nth-child(7) {--x: 0.3;}
-  div > span:nth-child(8) {--x: 0.35;}
-  div > span:nth-child(9) {--x: 0.4;}
-  div > span:nth-child(10) {--x: 0.45;}
-  div > span:nth-child(11) {--x: 0.5;}
-  div > span:nth-child(12) {--x: 0.55;}
-  div > span:nth-child(13) {--x: 0.6;}
-  div > span:nth-child(14) {--x: 0.65;}
-  div > span:nth-child(15) {--x: 0.7;}
-  div > span:nth-child(16) {--x: 0.75;}
-  div > span:nth-child(17) {--x: 0.8;}
-  div > span:nth-child(18) {--x: 0.85;}
-  div > span:nth-child(19) {--x: 0.9;}
-  div > span:nth-child(20) {--x: 0.95;}
-  div > span:nth-child(21) {--x: 1.0;}
+  div > p:nth-child(1) {--x: 0.0;}
+  div > p:nth-child(2) {--x: 0.05;}
+  div > p:nth-child(3) {--x: 0.1;}
+  div > p:nth-child(4) {--x: 0.15;}
+  div > p:nth-child(5) {--x: 0.2;}
+  div > p:nth-child(6) {--x: 0.25;}
+  div > p:nth-child(7) {--x: 0.3;}
+  div > p:nth-child(8) {--x: 0.35;}
+  div > p:nth-child(9) {--x: 0.4;}
+  div > p:nth-child(10) {--x: 0.45;}
+  div > p:nth-child(11) {--x: 0.5;}
+  div > p:nth-child(12) {--x: 0.55;}
+  div > p:nth-child(13) {--x: 0.6;}
+  div > p:nth-child(14) {--x: 0.65;}
+  div > p:nth-child(15) {--x: 0.7;}
+  div > p:nth-child(16) {--x: 0.75;}
+  div > p:nth-child(17) {--x: 0.8;}
+  div > p:nth-child(18) {--x: 0.85;}
+  div > p:nth-child(19) {--x: 0.9;}
+  div > p:nth-child(20) {--x: 0.95;}
+  div > p:nth-child(21) {--x: 1.0;}
 
-  @keyframes timer {
-    0% {--time: 0.00;} 5% {--time: 0.05;} 10% {--time: 0.10;} 15% {--time: 0.15;} 20% {--time: 0.20;}
-    25% {--time: 0.25;} 30% {--time: 0.30;} 35% {--time: 0.35;} 40% {--time: 0.40;} 45% {--time: 0.45;}
-    50% {--time: 0.50;} 55% {--time: 0.55;} 60% {--time: 0.60;} 65% {--time: 0.65;} 70% {--time: 0.70;}
-    75% {--time: 0.75;} 80% {--time: 0.80;} 85% {--time: 0.85;} 90% {--time: 0.90;} 95% {--time: 0.95;}
-    100% {--time: 1.00;}
-  }
+  @property --time { inherits: true; initial-value: 0; syntax: "\003Cnumber\003E"; /* escaped angular brackets because embedding brackets in SVG causes parsing error */ }
+  @keyframes timer { from {--time: 0;} to {--time: 1;} }
   :root {
-    animation: timer 6.28318s infinite; /* 2PI period */
+    animation: timer 6.28318s linear infinite; /* 2PI period */
   }
   body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: hsl(0, 0%, 95%); /* soft white */
     margin: 0;
+    padding-top: 16px;
   }
-  span {
+  p {
     display: inline-block;
-    height: 1rem;
-    width: 1rem;
+    margin: 0;
+    width: calc(30vmin / 26);
+    height: calc(30vmin / 26);
+    -webkit-user-select: none; /* (only) safari lets you select some p */
   }
 </style>
 
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<lol>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+</lol>
 
-<style
-  style="display: inline-block; white-space: pre-wrap; font: 1em monospace;"
-  contenteditable="true"
->
-  /* Editable style!
-    Provided globals: --x, --y, normalized from 0 to 1, and --time, looping over 2PI seconds
-    Reference: https://www.shadertoy.com/view/msd3R2
-  */
-  span {
-    /* create new UV from -1 to 1 */
-    --u: calc(2.0 * var(--x) - 1.0);
-    --v: calc(2.0 * var(--y) - 1.0);
-    /* no square root */
-    --dist: calc((var(--u) * var(--u) + var(--v) * var(--v))/2.0 - 0.25);
-    /* divide into 4 quadrants, -1 to 1 */
-    --quadrant-div: calc(var(--v) / (var(--u) + 0.001));
+<style style="display: block; white-space: pre-wrap; font: 1rem monospace; padding: 16px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true">/* Editable style!
+  Provided globals:
+  --x, --y: from 0 to 1
+  --time: loops from 0 to 1 over 2PIs
+  Reference: https://www.shadertoy.com/view/msd3R2
+*/
+p {
+  /* create new UV from -1 to 1 */
+  --u: (2.0 * var(--x) - 1.0);
+  --v: (2.0 * var(--y) - 1.0);
+  /* no square root */
+  --dist: ((var(--u) * var(--u) + var(--v) * var(--v))/2.0 - 0.25);
+  /* divide into 4 quadrants, -1 to 1 */
+  --quadrant-div: (var(--v) / (var(--u) + 0.001));
 
-    --a-x: calc(var(--quadrant-div) / (0.77 + 0.21*var(--quadrant-div)*var(--quadrant-div)) + sin(var(--time))/2.0 - 0.5);
-    --a-y: calc(var(--a-x) + 1.5);
-    --a-z: calc(var(--a-x) + 3.0);
-    --a-w: calc(var(--a-x) + 4.5);
+  --a-x: (var(--quadrant-div) / (0.77 + 0.21*var(--quadrant-div)*var(--quadrant-div)) + sin(var(--time))/2.0 - 0.5);
+  --a-y: (var(--a-x) + 1.5);
+  --a-z: (var(--a-x) + 3.0);
+  --a-w: (var(--a-x) + 4.5);
 
-    --b-x: calc(1.6 * var(--a-x) * (3.14 - var(--a-x)) / (50 - 4*var(--a-x)*(3.14 - var(--a-x))));
-    --b-y: calc(1.6 * var(--a-y) * (3.14 - var(--a-y)) / (50 - 4*var(--a-y)*(3.14 - var(--a-y))));
-    --b-z: calc(1.6 * var(--a-z) * (3.14 - var(--a-z)) / (50 - 4*var(--a-z)*(3.14 - var(--a-z))));
-    --b-w: calc(1.6 * var(--a-w) * (3.14 - var(--a-w)) / (50 - 4*var(--a-w)*(3.14 - var(--a-w))));
+  --b-x: (1.6 * var(--a-x) * (3.14 - var(--a-x)) / (50 - 4*var(--a-x)*(3.14 - var(--a-x))));
+  --b-y: (1.6 * var(--a-y) * (3.14 - var(--a-y)) / (50 - 4*var(--a-y)*(3.14 - var(--a-y))));
+  --b-z: (1.6 * var(--a-z) * (3.14 - var(--a-z)) / (50 - 4*var(--a-z)*(3.14 - var(--a-z))));
+  --b-w: (1.6 * var(--a-w) * (3.14 - var(--a-w)) / (50 - 4*var(--a-w)*(3.14 - var(--a-w))));
 
-    --bg-x: max(calc(var(--dist) - var(--b-x)), calc(var(--b-y) - var(--dist)));
-    --bg-y: max(calc(var(--dist) - var(--b-y)), calc(var(--b-z) - var(--dist)));
-    --bg-z: max(calc(var(--dist) - var(--b-z)), calc(var(--b-w) - var(--dist)));
-    --bg-w: max(calc(var(--dist) - var(--b-w)), calc(var(--b-x) - var(--dist)));
+  --bg-x: max((var(--dist) - var(--b-x)), (var(--b-y) - var(--dist)));
+  --bg-y: max((var(--dist) - var(--b-y)), (var(--b-z) - var(--dist)));
+  --bg-z: max((var(--dist) - var(--b-z)), (var(--b-w) - var(--dist)));
+  --bg-w: max((var(--dist) - var(--b-w)), (var(--b-x) - var(--dist)));
 
-    --dot: calc(
-      clamp(0, var(--bg-x) * 720, 72) * var(--b-x) +
-      clamp(0, var(--bg-y) * 720, 72) * var(--b-y) +
-      clamp(0, var(--bg-z) * 720, 72) * var(--b-z) +
-      clamp(0, var(--bg-w) * 720, 72) * var(--b-w)
-    );
+  --dot: (
+    clamp(0, var(--bg-x) * 720, 72) * var(--b-x) +
+    clamp(0, var(--bg-y) * 720, 72) * var(--b-y) +
+    clamp(0, var(--bg-z) * 720, 72) * var(--b-z) +
+    clamp(0, var(--bg-w) * 720, 72) * var(--b-w)
+  );
 
-    --r: calc(var(--dot) * (var(--b-x) - 0.1) * 255);
-    --g: calc(var(--dot) * (var(--b-y) - 0.1) * 255);
-    --b: calc(var(--dot) * (var(--b-z) - 0.1) * 255);
+  --r: calc(var(--dot) * (var(--b-x) - 0.1) * 255);
+  --g: calc(var(--dot) * (var(--b-y) - 0.1) * 255);
+  --b: calc(var(--dot) * (var(--b-z) - 0.1) * 255);
 
-    background-color: rgb(var(--r), var(--g), var(--b));
-  }
+  background-color: rgb(var(--r), var(--g), var(--b));
+}
 </style>
