@@ -1,6 +1,6 @@
 # Pure CSS Shaders Art
 
-<a href="https://chenglou.me/pure-css-shaders-art/heart.html"><img src="test.svg" style="width: 100%; height: 80vh;"></a>
+<a href="https://chenglou.me/pure-css-shaders-art/heart.svg"><img src="heart.svg" style="width: 100%; height: 80vh;"></a>
 
 Shaders art made with pure CSS, with an editable code area also made in CSS.
 
@@ -9,8 +9,8 @@ iOS & macOS previews disable JavaScript. Fortunately, we don't have JS 🙂
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` sources.
 
-- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.html)
-- [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/ring.html)
+- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.svg)
+- [Lord of Rings](https://chenglou.github.io/pure-css-shaders-art/ring.html) (a bit slow)
 - [Real Squircle, anti-aliased](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles
 
 ## FAQ
@@ -20,7 +20,7 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
   It's a grid of `<p />` with a single p style for `background-color`, calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
 
   The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝
-  
+
   GitHub Markdown disables JS, `<style />`, `<svg />` and anything interactive. So I put:
   - Style inside an HTML page
   - Inside a SVG `<foreignObject />`
