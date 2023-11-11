@@ -1,6 +1,6 @@
 # Pure CSS Shaders Art
 
-<a><img id="BangLogo" title="Bang Animation Tool" src="test.svg"></a>
+<a><img src="test.svg" style="width: 100%; height: 80vh;"></a>
 
 Shaders art made with pure CSS, with an editable code area also made in CSS, for better eh, developer experience.
 
