@@ -1,6 +1,6 @@
 # Pure CSS Shaders Art
 
-<a href="https://chenglou.me/pure-css-shaders-art/heart.svg"><img src="heart.svg" style="width: 100%; height: 80vh;"></a>
+<a href="https://chenglou.me/pure-css-shaders-art/heart.svg"><img src="heart.svg" style="width: 100%; height: 1008px;"></a>
 
 Shaders art made with pure CSS, with an editable code area also made in CSS.
 
