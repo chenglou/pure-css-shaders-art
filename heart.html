@@ -125,6 +125,7 @@ body:has(div:nth-child(1):hover, p:nth-child(26):active) {--mouseY: 1;}
     margin: 0;
     height: 0.65rem;
     width: 0.65rem;
+    -webkit-user-select: none; /* (only) safari lets you select some p */
   }
 </style>
 
@@ -155,10 +156,7 @@ body:has(div:nth-child(1):hover, p:nth-child(26):active) {--mouseY: 1;}
 <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
 <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
 
-<style
-  style="display: inline-block; white-space: pre-wrap; font: 1em monospace;"
-  contenteditable="true"
->
+<style style="display: inline-block; white-space: pre-wrap; font: 1em monospace;" contenteditable="true">
   /* Editable style!
     Provided globals:
     --x, --y, --mouseX, --mouseY: normalized from 0 to 1
