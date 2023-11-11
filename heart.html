@@ -119,8 +119,7 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    /* soft white */
-    background-color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 95%); /* soft white */
   }
   p {
     display: inline-block;
@@ -160,7 +159,8 @@
 
 <style style="display: inline-block; white-space: pre-wrap; font: 1rem monospace; padding: 8px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true"> /* Editable style!
     Provided globals:
-    --x, --y, --mouseX, --mouseY: normalized from 0 to 1
+    --x, --y: from 0 to 1
+    --mouseX, --mouseY: from 0 to 1, default to 0.5 when not hovering
     --time: loops from 0 to 1 over 1s (CSS can't increase a counter forever) */
   p {
     /* create new UV from -1 to 1 */
