@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500">
-  <foreignObject width="500" height="500">
-    <body xmlns="http://www.w3.org/1999/xhtml">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+    <body xmlns="http://www.w3.org/1999/xhtml" style="line-height: 0; width: 100%; height: 100%;">
       <style>
         p:nth-child(1) {--x: 0;}
         p:nth-child(2) {--x: 0.04;}
@@ -110,7 +110,7 @@
         body:has(div:nth-child(2):hover) {--mouseY: 0.96;}
         body:has(div:nth-child(1):hover) {--mouseY: 1;}
 
-        @property --time { syntax: "<number>"; inherits: true; initial-value: 0; }
+        @property --time { inherits: true; initial-value: 0; syntax: "\003Cnumber\003E"; /* escaped angular brackets because embedding brackets in SVG causes parsing error */ }
         @keyframes timer { from {--time: 0;} to {--time: 1;} }
         :root {
           animation: timer 1s infinite;
@@ -121,8 +121,9 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin: 20px;
           background-color: hsl(0, 0%, 95%); /* soft white */
+          margin: 0;
+          padding-top: 12px;
         }
         p {
           display: inline-block;
@@ -160,27 +161,26 @@
       <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
       <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
 
-      <style style="display: inline-block; white-space: pre-wrap; font: 1rem monospace; padding: 8px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true"> /* Editable style!
-          Provided globals:
-          --x, --y: from 0 to 1
-          --mouseX, --mouseY: from 0 to 1, default to 0.5 when not hovering
-          --time: loops from 0 to 1 over 1s (CSS can't increase a counter forever) */
-        p {
-          /* create new UV from -1 to 1 */
-          --u: (2.0 * var(--x) - 1.0);
-          --v: (2.0 * var(--y) - 1.0);
+      <style style="display: inline-block; white-space: pre-wrap; font: 1rem monospace; padding: 16px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true">/* Editable style!
+  Provided globals:
+  --x, --y: from 0 to 1
+  --mouseX, --mouseY: from 0 to 1, default to 0.5 when not hovering
+  --time: loops from 0 to 1 over 1s (CSS can't increase a counter forever) */
+p {
+  /* create new UV from -1 to 1 */
+  --u: (2.0 * var(--x) - 1.0);
+  --v: (2.0 * var(--y) - 1.0);
 
-          --u2: (var(--u) - var(--mouseX) + 0.5);
-          --absU2: max(var(--u2), -1 * var(--u2)); /* abs() polyfill */
-          --v2: (var(--v) * 1.2 - var(--absU2) * (1.0 - var(--absU2) + var(--mouseY) - 0.5));
-          --time2: 3.14 * var(--time); /* range:  [0, PI] */
-          --dist: var(--u) * var(--u) + var(--v2) * var(--v2); /* sqrt() polyfill */
-          --color: clamp(0, 0.5 - (var(--dist) - sin(var(--time2)) * 0.3), 1);
+  --u2: (var(--u) - var(--mouseX) + 0.5);
+  --absU2: max(var(--u2), -1 * var(--u2)); /* abs() polyfill */
+  --v2: (var(--v) * 1.2 - var(--absU2) * (1.0 - var(--absU2) + var(--mouseY) - 0.5));
+  --time2: 3.14 * var(--time); /* range:  [0, PI] */
+  --dist: var(--u) * var(--u) + var(--v2) * var(--v2); /* sqrt() polyfill */
+  --color: clamp(0, 0.5 - (var(--dist) - sin(var(--time2)) * 0.3), 1);
 
-          /* cycle through color on the HSL disk */
-          background-color: hsl(calc(var(--color) * 360 - 180), 50%, 50%);
-        }
-      </style>
+  /* cycle through color on the HSL disk */
+  background-color: hsl(calc(var(--color) * 360 - 180), 50%, 50%);
+}</style>
     </body>
   </foreignObject>
 </svg>
