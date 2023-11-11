@@ -132,8 +132,8 @@
   p {
     display: inline-block;
     margin: 0;
-    width: calc(50vmin / 26);
-    height: calc(50vmin / 26);
+    width: 20px;
+    height: 20px;
     -webkit-user-select: none; /* (only) safari lets you select some p */
   }
 </style>
