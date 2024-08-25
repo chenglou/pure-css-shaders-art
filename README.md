@@ -1,32 +1,32 @@
 # Pure CSS Shaders Art
 
+**Dear GitHub: please don't disable this! This is harmless**
+
 <a href="https://chenglou.me/pure-css-shaders-art/heart.svg"><img src="heart.svg" style="width: 100%; height: 1008px;"></a>
 
-Shaders art made with pure CSS, with an editable highlighted code area also made in pure CSS. **Zero JavaScript anywhere!**
-
-**Dear GitHub: please don't disable this! This is harmless**
+Shaders art made with pure CSS, with an editable highlighted code area also made in pure CSS. **Zero JavaScript!**
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` or `svg` sources.
 
 - [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.svg)
-- [One Ring](https://chenglou.github.io/pure-css-shaders-art/ring.html) (a bit slow)
-- [Real Squircle with Anti-Aliasing](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles natively
+- [One Ring](https://chenglou.github.io/pure-css-shaders-art/ring.html) (warning: slow)
+- [Apple Squircle with Anti-Aliasing](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles natively
 
 ## FAQ
 
 - **How does this work?**
 
-  It's a grid of `<p />` with a single p style for `background-color`, calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
+  It's a grid of `<p />` with `background-color` calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
 
   The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝. It uses a special font that recognizes language grammars and replace characters with their colored counterpart (!). Since this is done in the font file, still no JS required. More info [here](https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/).
 
-  GitHub Markdown disables JS, `<style />`, `<svg />` and anything interactive. So I put:
+  To embed this into GitHub Markdown, which not only disable JS, but also `<style />`, `<svg />` and anything interactive, I shoved:
   - Style inside an HTML page
   - Inside a SVG `<foreignObject />`
   - Inside an `img` link
-  - Inside GitHub README markdown which does support `img`
+  - Inside GitHub README markdown, which does support `img`...
 
-  For the magical highlighted font, I used CSS @font-face but with the entire woff2 file inlined as base64 data URL, since GitHub markdown blocks those network requests. The extra benefit is that there's no brief flash of unloaded font upon page load.
+  For the magical highlighted font, I used CSS `@font-face` but with the entire woff2 file inlined as base64 data URL, since GitHub markdown blocks those network requests. The extra benefit is that there's no flash of unloaded font upon page load.
 
 - **Why bother keeping the code clean if no one will read or modify this nonsense?**
 
