@@ -129,6 +129,10 @@
     padding-top: 16px;
   }
   div { line-height: 0; } /* needed for embedding in svg */
+  @font-face {
+    font-family: 'Monaspace';
+    src: url('./FontWithASyntaxHighlighter-Regular.woff2') format('woff2');
+  }
   p {
     display: inline-block;
     margin: 0;
@@ -136,6 +140,17 @@
     height: calc(50vmin / 26);
     -webkit-user-select: none; /* (only) safari lets you select some p */
   }
+  style {
+    /* for the display: block style tag below */
+    color: rgb(241, 241, 241);
+    font-family: "Monaspace", monospace;
+    background-color: hsl(220, 15%, 20%); /* slightly lighter blue-grey */
+    white-space: pre-wrap;
+    padding: 16px;
+    margin: 16px;
+    border-radius: 12px;
+  }
+
 </style>
 
 <lol>
@@ -168,8 +183,7 @@
 </lol>
 
 <strong style="font-family: monospace; margin: 8px;">Click or hover over the picture!</strong>
-
-<style style="display: block; white-space: pre-wrap; font: 1rem monospace; padding: 16px; margin: 16px; background-color: white; border-radius: 12px;" contenteditable="true">/* Editable style!
+<style style="display: block" contenteditable="true">/* Editable style!
   Provided globals:
   --x, --y: from 0 to 1
   --mouseX, --mouseY: from 0 to 1, default to 0.5 when not hovering
