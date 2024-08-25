@@ -8,9 +8,9 @@ Shaders art made with pure CSS, with an editable highlighted code area also made
 
 The demos are responsive & editable even on mobile. Check out this repo's various `html` or `svg` sources.
 
-- [Happy Valentines](https://chenglou.github.io/pure-css-shaders-art/heart.svg)
-- [One Ring](https://chenglou.github.io/pure-css-shaders-art/ring.html) (warning: slow)
-- [Apple Squircle with Anti-Aliasing](https://chenglou.github.io/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles natively
+- [Happy Valentines](https://chenglou.me/pure-css-shaders-art/heart.svg)
+- [One Ring](https://chenglou.me/pure-css-shaders-art/ring.html) (warning: slow)
+- [Apple Squircle with Anti-Aliasing](https://chenglou.me/pure-css-shaders-art/squircle.html) from [iOS](https://99percentinvisible.org/article/circling-square-designing-squircles-instead-rounded-rectangles/) since CSS can't do squircles natively
 
 ## FAQ
 
@@ -44,7 +44,7 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
 
 ## Contribute
 
-Make your own CSS shader art and spread the joy! Ping me on [Twitter](http://twitter.com/_chenglou); I'd like to see what you've made!
+Make your own CSS shader art and spread the joy! Ping me on [Twitter](http://x.com/_chenglou); I'd like to see what you've made!
 
 ## Further Reading
 
