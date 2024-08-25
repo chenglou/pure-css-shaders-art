@@ -1,0 +1,97 @@
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 95%); /* soft white */
+    margin: 0;
+    padding-top: 16px;
+  }
+
+  p {
+    display: inline-block;
+    margin: 0;
+    height: 1rem;
+    width: 1rem;
+    -webkit-user-select: none; /* (only) safari lets you select some p */
+  }
+</style>
+
+<lol>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+</lol>
+
+<script>
+  const ps = document.querySelectorAll('p')
+  const rows = Math.sqrt(ps.length)
+  function render(time) {
+    time = time / 1000
+    ps.forEach((s, i) => {
+      const row = Math.floor(i / rows)
+      const col = i % rows
+      const x = row / (rows - 1)
+      const y = col / (rows - 1)
+
+      const u = 2.0 * x - 1.0
+      const v = 2.0 * y - 1.0
+      const dist = (u * u + v * v) / 2.0 - 0.25
+      const quadrantDiv = v / (u + 0.001)
+
+      s.style.setProperty('--dist', dist)
+      s.style.setProperty('--quadrant-div', quadrantDiv)
+    })
+    document.documentElement.style.setProperty('--time', time)
+    requestAnimationFrame(render)
+  }
+  render()
+</script>
+
+<style>
+  /*
+    Reference: https://www.shadertoy.com/view/msd3R2
+  */
+  p {
+    --a-x: calc(var(--quadrant-div) / (0.77 + 0.21*var(--quadrant-div)*var(--quadrant-div)) + sin(var(--time))/2.0 - 0.5);
+    --a-y: calc(var(--a-x) + 1.5);
+    --a-z: calc(var(--a-x) + 3.0);
+    --a-w: calc(var(--a-x) + 4.5);
+
+    --b-x: calc(1.6 * var(--a-x) * (3.14 - var(--a-x)) / (50 - 4*var(--a-x)*(3.14 - var(--a-x))));
+    --b-y: calc(1.6 * var(--a-y) * (3.14 - var(--a-y)) / (50 - 4*var(--a-y)*(3.14 - var(--a-y))));
+    --b-z: calc(1.6 * var(--a-z) * (3.14 - var(--a-z)) / (50 - 4*var(--a-z)*(3.14 - var(--a-z))));
+    --b-w: calc(1.6 * var(--a-w) * (3.14 - var(--a-w)) / (50 - 4*var(--a-w)*(3.14 - var(--a-w))));
+
+    --bg-x: max(calc(var(--dist) - var(--b-x)), calc(var(--b-y) - var(--dist)));
+    --bg-y: max(calc(var(--dist) - var(--b-y)), calc(var(--b-z) - var(--dist)));
+    --bg-z: max(calc(var(--dist) - var(--b-z)), calc(var(--b-w) - var(--dist)));
+    --bg-w: max(calc(var(--dist) - var(--b-w)), calc(var(--b-x) - var(--dist)));
+
+    --dot: calc(clamp(0, var(--bg-x) * 720, 72) * var(--b-x) + clamp(0, var(--bg-y) * 720, 72) * var(--b-y) + clamp(0, var(--bg-z) * 720, 72) * var(--b-z) + clamp(0, var(--bg-w) * 720, 72) * var(--b-w));
+
+    --r: calc(var(--dot) * (var(--b-x) - 0.1) * 255);
+    --g: calc(var(--dot) * (var(--b-y) - 0.1) * 255);
+    --b: calc(var(--dot) * (var(--b-z) - 0.1) * 255);
+
+    background-color: rgb(var(--r), var(--g), var(--b));
+  }
+</style>

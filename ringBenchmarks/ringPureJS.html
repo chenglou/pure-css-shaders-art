@@ -1,0 +1,100 @@
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: hsl(0, 0%, 95%); /* soft white */
+    margin: 0;
+    padding-top: 16px;
+  }
+
+  p {
+    display: inline-block;
+    margin: 0;
+    height: 1rem;
+    width: 1rem;
+    -webkit-user-select: none; /* (only) safari lets you select some p */
+  }
+</style>
+
+<lol>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+  <div><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/><p/></div>
+</lol>
+
+<script>
+  const ps = document.querySelectorAll('p')
+  const rows = Math.sqrt(ps.length)
+  function clamp(min, max, value) {
+    return Math.min(Math.max(min, value), max)
+  }
+  function render(time) {
+    time = time / 1000
+    ps.forEach((s, i) => {
+      const row = Math.floor(i / rows)
+      const col = i % rows
+      const x = row / (rows - 1)
+      const y = col / (rows - 1)
+
+      const u = 2.0 * x - 1.0
+      const v = 2.0 * y - 1.0
+      const dist = (u * u + v * v) / 2.0 - 0.25
+      const quadrantDiv = v / (u + 0.001)
+
+      const ax = quadrantDiv / (0.77 + 0.21 * quadrantDiv * quadrantDiv) + Math.sin(time) / 2.0 - 0.5
+      const a = {
+        x: ax,
+        y: ax + 1.5,
+        z: ax + 3.0,
+        w: ax + 4.5,
+      }
+
+      const b = {
+        x: 1.6 * a.x * (Math.PI - a.x) / (50 - 4 * a.x * (Math.PI - a.x)),
+        y: 1.6 * a.y * (Math.PI - a.y) / (50 - 4 * a.y * (Math.PI - a.y)),
+        z: 1.6 * a.z * (Math.PI - a.z) / (50 - 4 * a.z * (Math.PI - a.z)),
+        w: 1.6 * a.w * (Math.PI - a.w) / (50 - 4 * a.w * (Math.PI - a.w)),
+      }
+
+      const bg = {
+        x: Math.max(dist - b.x, b.y - dist),
+        y: Math.max(dist - b.y, b.z - dist),
+        z: Math.max(dist - b.z, b.w - dist),
+        w: Math.max(dist - b.w, b.x - dist),
+      }
+
+      const dot =
+        clamp(0, bg.x * 720, 72) * b.x +
+        clamp(0, bg.y * 720, 72) * b.y +
+        clamp(0, bg.z * 720, 72) * b.z +
+        clamp(0, bg.w * 720, 72) * b.w
+
+      const r = dot * (b.x - 0.1) * 255
+      const g = dot * (b.y - 0.1) * 255
+      const b_ = dot * (b.z - 0.1) * 255
+
+      s.style.backgroundColor = `rgb(${r},${g},${b_})`
+    })
+    requestAnimationFrame(render)
+  }
+  render()
+</script>
