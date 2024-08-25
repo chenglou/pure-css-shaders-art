@@ -129,6 +129,7 @@
     padding-top: 16px;
   }
   div { line-height: 0; } /* needed for embedding in svg */
+  /* this is a special font that contains colored version of characters based on the font's embedded languages parser (!!). Pure CSS and font-based syntax highlighting! */
   @font-face {
     font-family: 'Monaspace';
     src:

@@ -2,7 +2,7 @@
 
 <a href="https://chenglou.me/pure-css-shaders-art/heart.svg"><img src="heart.svg" style="width: 100%; height: 1008px;"></a>
 
-Shaders art made with pure CSS, with an editable code area also made in CSS.
+Shaders art made with pure CSS, with an editable highlighted code area also made in pure CSS. **Zero JavaScript anywhere!**
 
 **Dear GitHub: please don't disable this! This is harmless**
 
@@ -18,13 +18,15 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
 
   It's a grid of `<p />` with a single p style for `background-color`, calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
 
-  The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝
+  The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝. It uses a special font that recognizes language grammars and replace characters with their colored counterpart (!). Since this is done in the font file, still no JS required. More info [here](https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/).
 
   GitHub Markdown disables JS, `<style />`, `<svg />` and anything interactive. So I put:
   - Style inside an HTML page
   - Inside a SVG `<foreignObject />`
   - Inside an `img` link
   - Inside GitHub README markdown which does support `img`
+
+  For the magical highlighted font, I used CSS @font-face but with the entire woff2 file inlined as base64 data URL, since GitHub markdown blocks those network requests. The extra benefit is that there's no brief flash of unloaded font upon page load.
 
 - **Why bother keeping the code clean if no one will read or modify this nonsense?**
 
@@ -55,3 +57,4 @@ Wanna get started on shaders? Try:
 ## Credits
 
 - Thanks to [Johnathon Selstad](twitter.com/makeshifted) for the SVG idea!
+- Thanks to [Glyph Drawing Club](https://blog.glyphdrawing.club/about/) for the crazy colored font.
