@@ -120,6 +120,7 @@
     --mouseClick: 0;
   }
   lol:active { --mouseClick: 1; }
+  lol > div { line-height: 0; } /* needed for embedding in svg */
   body {
     display: flex;
     flex-direction: column;
@@ -128,7 +129,6 @@
     margin: 0;
     padding-top: 16px;
   }
-  div { line-height: 0; } /* needed for embedding in svg */
   p {
     display: inline-block;
     margin: 0;
