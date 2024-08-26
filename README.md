@@ -18,7 +18,7 @@ The demos are responsive & editable even on mobile. Check out this repo's variou
 
   It's a grid of `<p />` with `background-color` calculated using CSS `calc()`, `:hover`, keyframes and custom properties. Just your typical CSS + math.
 
-  The live editor is a `style` tag with `display: block` and `contenteditable="true"` 😝. It uses a special font that recognizes language grammars and replace characters with their colored counterpart (!). Since this is done in the font file, still no JS required. More info [here](https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/).
+  The live editor is a `style` tag made visible with `display: block` that's `contenteditable` 😝. It uses a special font that recognizes language grammars and replace characters with their colored counterpart (!). Since this is done in the font file, still no JS required. More info [here](https://blog.glyphdrawing.club/font-with-built-in-syntax-highlighting/).
 
   To embed this into GitHub Markdown, which not only disable JS, but also `<style />`, `<svg />` and anything interactive, I shoved:
   - Style inside an HTML page
