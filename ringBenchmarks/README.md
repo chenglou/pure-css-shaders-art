@@ -6,13 +6,17 @@ This ports the parent folder's [One Ring](https://chenglou.me/pure-css-shaders-a
 - `ringJsTimerCSSRest.html`: `ring.html` but with only the `--time` CSS timer variable ported to JS `requestAnimationFrame`. Just a (mistaken) guts feeling that Ring's CSS `keyframes` timer was the slow part.
 - `ringHalfJSHalfCSS.html`: `ring.html` but with `--time`, `--dist` and `--quadrant-div` ported to JS. Another guts feeling that maybe the slow part is those `p`s dedicated `--x` and `--y` CSS variables declared through the selectors at the top of the file.
 
-## Conclusion
+## Results
 
-- The original pure CSS `ring.html` is naturally the slowest, though maybe not intutive for many devs, who think CSS = faster.
+- The original pure CSS `ring.html` (parent folder) is the slowest.
 - `ringTimerCSSRest.html` is slightly faster but not by much.
 - `ringHalfJSHalfCSS.html` is faster by a bit.
 - `ringPureJS.html` is perfect 120fps.
 
-Every time we remove CSS variables, things get noticeably faster. I suspect that CSS variables have room to be optimized by browsers, but that they'll stay much slower than JS variables due to their nature. Might be decades before such CSS demo catch up to JS speed, even assuming CSS doesn't bloat up even further.
+It looks like every time a CSS variable gets moved into JS, things get faster. Though some CSS variables are much more expensive than others. If you're still curious, I've forked off `ringJsTimerCSSRest.html` into `ringDebug.html`. Open the inspector and check the flashing rate of `<html style="--time:...">` for a rough idea of performance. Try these:
+- Uncomment the selectors at the beginning. Things should be super slow.
+- (Recomment the selectors) uncomment line 92 (`s.style.setProperty('--thisIsUnused', 1)`). A single, upfront `setProperty` now slows things down as much.
+- Uncomment the last chunk of `--dot1` to `--dot9`. No slowdown.
+- Uncomment both the first chunk (selectors) and last chunk (`--dot1` to `--dot9`). The slowest slowdown.
 
-So the push to cram more things into CSS will probably result in a web that gradually slows down over time (contrary to usual folks optimism), while every other kind of software either breaks even or get faster.
+Ping if you have clearer findings! Have fun!
