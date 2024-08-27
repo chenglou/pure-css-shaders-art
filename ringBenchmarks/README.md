@@ -19,4 +19,6 @@ It looks like every time a CSS variable gets moved into JS, things get faster. T
 - Uncomment the last chunk of `--dot1` to `--dot9`. No slowdown.
 - Uncomment both the first chunk (selectors) and last chunk (`--dot1` to `--dot9`). The slowest slowdown.
 
+It seems like a combination of nonlocal, nonstatic, and nontrivial CSS variables usages trigger >100x slowdowns.
+
 Ping if you have clearer findings! Have fun!
