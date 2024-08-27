@@ -9,7 +9,7 @@ This ports the parent folder's [One Ring](https://chenglou.me/pure-css-shaders-a
 ## Results
 
 - The original pure CSS `ring.html` (parent folder) is the slowest.
-- [`ringTimerCSSRest.html`](https://chenglou.me/pure-css-shaders-art/ringBenchmarks/ringTimerCSSRest.html) is slightly faster but not by much.
+- [`ringJsTimerCSSRest.html`](https://chenglou.me/pure-css-shaders-art/ringBenchmarks/ringJsTimerCSSRest.html) is slightly faster but not by much.
 - [`ringHalfJSHalfCSS.html`](https://chenglou.me/pure-css-shaders-art/ringBenchmarks/ringHalfJSHalfCSS.html) is faster by a bit.
 - [`ringPureJS.html`](https://chenglou.me/pure-css-shaders-art/ringBenchmarks/ringPureJS.html) is perfect 120fps.
 
